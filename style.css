@@ -84,3 +84,11 @@
 .demo-access-copy small{font-size:10px;color:#8a84a0}
 .demo-access-arrow{font-size:20px;color:#735dc6}
 @media(max-width:760px){.demo-access-btn{padding:12px}}
+
+.optional-label{font-size:9px;color:#9993aa;font-weight:500;margin-left:4px}
+.catalog-note{background:#f8f6ff;border-left:3px solid #9b89e6;padding:10px 12px;border-radius:0 9px 9px 0;font-size:10px!important;line-height:1.6!important;color:#81799c!important}
+.return-action{margin-top:7px;border:1px solid #e5e0f7;background:#f6f3ff;color:#6249c5;border-radius:7px;padding:6px 8px;font-size:9px;font-weight:700}
+.return-action:hover{background:#eee9ff}
+.button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.profile-photo.hidden{display:none!important}
+@media(max-width:760px){.main-area{padding:0 18px}.results-line{gap:10px;align-items:flex-start}.detail-layout{grid-template-columns:1fr;padding:20px;gap:22px}.detail-cover-area{min-height:250px}.profile-layout{grid-template-columns:1fr}.reader-paper{padding:32px 22px}.reader-controls{gap:10px}.reader-controls button{padding:9px}.stats-grid{gap:9px}.stat-card{padding:12px;gap:8px}.stat-icon{width:36px;height:36px}.stat-card strong{font-size:18px}.stat-card small{font-size:9px}}
