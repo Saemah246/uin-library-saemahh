@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#5b43bd" />
+  <title>UIN Library — Perpustakaan Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <section class="login-screen" id="loginScreen">
+    <div class="login-visual">
+      <a class="brand login-brand" href="#"><span class="brand-mark">▤</span><span>UIN <b>Library</b></span></a>
+      <div class="login-visual-copy">
+        <span class="eyebrow light">PERPUSTAKAAN DIGITAL KAMPUS</span>
+        <h1>Knowledge Today,<br><em>A Better Tomorrow.</em></h1>
+        <p>Akses ilmu, temukan inspirasi, dan jelajahi koleksi buku dalam satu tempat.</p>
+      </div>
+      <div class="login-visual-books" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <small class="login-visual-foot">UIN Library · Ruang tumbuh bersama pengetahuan</small>
+    </div>
+    <div class="login-panel"><div class="login-panel-inner">
+      <span class="eyebrow">SELAMAT DATANG DI UIN LIBRARY</span>
+      <h2>Masuk ke perpustakaan</h2>
+      <p class="login-subtitle">Pilih akses sesuai kebutuhanmu. Dosen dapat mencoba prototype tanpa NIM.</p>
+      <form id="loginForm">
+        <label for="loginName">Nama lengkap</label>
+        <input id="loginName" type="text" placeholder="Contoh: Saemah" autocomplete="name" required maxlength="60">
+        <label for="loginNim">Nomor Induk Mahasiswa (NIM)</label>
+        <input id="loginNim" type="text" placeholder="Masukkan NIM kamu" autocomplete="username" required maxlength="30">
+        <button class="button button-primary login-submit" type="submit">Masuk sebagai mahasiswa <span>→</span></button>
+      </form>
+      <div class="login-divider"><span>ATAU</span></div>
+      <button class="demo-access-btn" id="teacherDemoBtn" type="button">
+        <span class="demo-access-icon">♙</span>
+        <span class="demo-access-copy"><b>Masuk sebagai Dosen / Pengunjung</b><small>Akses demo tanpa perlu NIM</small></span>
+        <span class="demo-access-arrow">→</span>
+      </button>
+      <p class="login-note">Catatan: ini prototype UI/UX. Login mahasiswa belum diverifikasi ke database kampus. Akses dosen/pengunjung digunakan untuk mencoba demo.</p>
+    </div><small class="login-copyright">© 2026 UIN Library</small></div>
+  </section>
+
+  <div class="app-shell hidden" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="UIN Library beranda">
+        <span class="brand-mark">▤</span><span>UIN <b>Library</b></span>
+      </a>
+      <div class="side-label">MENU UTAMA</div>
+      <nav class="nav-menu">
+        <button class="nav-link active" data-page="home"><span>⌂</span> Beranda</button>
+        <button class="nav-link" data-page="catalog"><span>⌕</span> Cari Buku</button>
+        <button class="nav-link" data-page="loans"><span>▣</span> Pinjam Buku</button>
+        <button class="nav-link" data-page="history"><span>◷</span> Riwayat</button>
+        <button class="nav-link" data-page="profile"><span>♙</span> Profil</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>Butuh bantuan?</strong>
+          <p>Temukan jawaban seputar layanan perpustakaan.</p>
+          <button id="helpBtn">Pusat Bantuan <span>→</span></button>
+        </div>
+        <button class="nav-link logout" id="logoutBtn"><span>↪</span> Keluar</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb">Perpustakaan <span>/</span> <b id="crumb">Beranda</b></div>
+        <div class="top-actions">
+          <button class="icon-button" id="notifBtn" aria-label="Notifikasi">♧<i></i></button>
+          <button class="user-chip" data-page="profile">
+            <span class="user-avatar user-avatar-initial" id="headerInitial">U</span>
+            <span><b id="headerName">Mahasiswa</b><small id="headerRole">Mahasiswa</small></span><span class="chevron">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="page active" id="page-home">
+        <div class="welcome-banner">
+          <div class="banner-copy">
+            <span class="eyebrow light">PERPUSTAKAAN DIGITAL KAMPUS</span>
+            <h1>Selamat datang,<br><em id="welcomeName">Mahasiswa!</em> <span class="wave">✦</span></h1>
+            <p>Jelajahi pengetahuan baru dan temukan buku yang menginspirasi perjalanan belajarmu.</p>
+            <button class="button button-white" data-go="catalog">Jelajahi koleksi <span>→</span></button>
+          </div>
+          <div class="banner-art" aria-hidden="true">
+            <div class="orb orb-one"></div><div class="orb orb-two"></div>
+            <div class="book-stack"><span></span><span></span><span></span><span></span></div>
+            <div class="open-book"><div></div><div></div></div>
+            <div class="sparkle s1">✦</div><div class="sparkle s2">✧</div>
+          </div>
+          <div class="banner-curve"></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon purple">▤</div><div><small>Total koleksi buku</small><strong>12.850<span>+</span></strong><small class="stat-note">Koleksi tersedia</small></div></article>
+          <article class="stat-card"><div class="stat-icon blue">♙</div><div><small>Pengguna aktif</small><strong>2.500<span>+</span></strong><small class="stat-note">Mahasiswa & dosen</small></div></article>
+          <article class="stat-card"><div class="stat-icon peach">▣</div><div><small>Peminjaman hari ini</small><strong>320<span>+</span></strong><small class="stat-note">Terus bertambah</small></div></article>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">PILIHAN UNTUKMU</span><h2>Buku populer</h2></div>
+          <button class="text-link" data-go="catalog">Lihat semua <span>→</span></button>
+        </div>
+        <div class="book-grid" id="popularBooks"></div>
+
+        <div class="bottom-grid">
+          <article class="notice-card">
+            <div class="notice-symbol">✦</div><div><span class="eyebrow">INFORMASI</span><h3>Jam operasional perpustakaan</h3><p>Senin – Jumat, pukul 08.00 – 16.00 WIB. Yuk, manfaatkan waktu untuk membaca!</p></div>
+          </article>
+          <article class="quote-card"><span>“</span><p>Membaca adalah jendela untuk melihat dunia lebih luas.</p><small>— UIN Library</small></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-catalog">
+        <div class="page-intro"><span class="eyebrow">TEMUKAN BACAAN FAVORITMU</span><h1>Jelajahi koleksi buku</h1><p>Gunakan pencarian atau pilih kategori untuk menemukan buku yang kamu butuhkan.</p></div>
+        <div class="search-row">
+          <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari judul buku, penulis, atau kategori..." /><kbd>⌘ K</kbd></div>
+          <select id="sortSelect" aria-label="Urutkan buku"><option value="popular">Paling populer</option><option value="az">Judul A–Z</option></select>
+        </div>
+        <div class="category-row" id="categoryRow">
+          <button class="category-pill selected" data-category="Semua">Semua</button>
+          <button class="category-pill" data-category="Teknologi">Teknologi</button>
+          <button class="category-pill" data-category="Sains">Sains</button>
+          <button class="category-pill" data-category="Sosial">Sosial & Humaniora</button>
+          <button class="category-pill" data-category="Pendidikan">Pendidikan</button>
+          <button class="category-pill" data-category="Bisnis">Bisnis</button>
+        </div>
+        <div class="results-line"><b id="resultCount">6 buku ditemukan</b><span>Koleksi pilihan perpustakaan</span></div>
+        <div class="book-grid catalog-grid" id="catalogBooks"></div>
+        <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>Buku belum ditemukan</h3><p>Coba kata kunci atau kategori yang berbeda.</p></div>
+      </section>
+
+      <section class="page" id="page-detail">
+        <button class="back-link" data-go="catalog">← Kembali ke koleksi</button>
+        <div class="detail-layout" id="bookDetail"></div>
+      </section>
+
+      <section class="page" id="page-reader">
+        <div class="reader-top"><button class="back-link" data-go="detail">← Kembali ke detail buku</button><span class="reader-label">MODE BACA DIGITAL</span></div>
+        <article class="reader-paper">
+          <div class="reader-kicker">UIN LIBRARY · KOLEKSI DIGITAL</div>
+          <h1 id="readerTitle">Membaca buku</h1><p class="reader-author" id="readerAuthor"></p>
+          <div class="reader-rule"></div>
+          <h2>Pengantar</h2>
+          <p>Selamat datang di ruang baca digital UIN Library. Membaca merupakan salah satu cara untuk memperluas wawasan, melatih pemikiran kritis, dan membangun pemahaman baru.</p>
+          <p>Setiap pengetahuan berawal dari rasa ingin tahu. Melalui buku ini, pembaca diajak untuk mengenali gagasan utama, memahami konsep secara bertahap, dan menghubungkannya dengan kehidupan sehari-hari.</p>
+          <p>Gunakan waktu membaca dengan nyaman. Catat bagian penting, renungkan informasi yang diperoleh, dan terus kembangkan semangat belajar.</p>
+          <div class="reader-page-number">— 01 —</div>
+          <div class="reader-controls"><button id="prevPage" disabled>← Sebelumnya</button><span id="pageNumber">Halaman 1 dari 3</span><button id="nextPage">Selanjutnya →</button></div>
+        </article>
+      </section>
+
+      <section class="page" id="page-loans">
+        <div class="page-intro"><span class="eyebrow">KELOLA PEMINJAMANMU</span><h1>Peminjaman buku</h1><p>Pastikan buku pilihanmu tersedia sebelum mengajukan peminjaman.</p></div>
+        <div class="loan-summary"><div><small>Menunggu / sedang dipinjam</small><strong id="activeLoanCount">0 buku</strong></div><div class="loan-summary-icon">▣</div></div>
+        <div class="table-card"><div class="table-heading"><h3>Daftar peminjaman aktif</h3><span class="status-dot">● Diperbarui otomatis</span></div><div class="table-wrap"><table><thead><tr><th>BUKU</th><th>TANGGAL PINJAM</th><th>JATUH TEMPO</th><th>STATUS</th></tr></thead><tbody id="activeLoansTable"></tbody></table></div><div class="table-empty" id="loansEmpty">Belum ada peminjaman aktif. Yuk, temukan buku favoritmu!</div></div>
+        <button class="button button-primary" data-go="catalog">+ Cari buku untuk dipinjam</button>
+      </section>
+
+      <section class="page" id="page-history">
+        <div class="page-intro"><span class="eyebrow">CATATAN AKTIVITAS</span><h1>Riwayat peminjaman</h1><p>Pantau buku yang pernah kamu pinjam dan status pengembaliannya.</p></div>
+        <div class="table-card"><div class="table-heading"><h3>Semua aktivitas</h3><span class="history-count" id="historyCount">0 aktivitas</span></div><div class="table-wrap"><table><thead><tr><th>JUDUL BUKU</th><th>TANGGAL PINJAM</th><th>JATUH TEMPO</th><th>STATUS</th></tr></thead><tbody id="historyTable"></tbody></table></div><div class="table-empty" id="historyEmpty">Riwayat peminjamanmu akan tampil di sini.</div></div>
+      </section>
+
+      <section class="page" id="page-profile">
+        <div class="page-intro"><span class="eyebrow">AKUN ANGGOTA</span><h1>Profil mahasiswa</h1><p>Informasi akun yang terdaftar pada UIN Library.</p></div>
+        <div class="profile-layout">
+          <article class="profile-card"><div class="profile-cover"></div><div class="profile-photo profile-initial" id="profileInitial">U</div><h2 id="profileName">Mahasiswa</h2><span class="member-tag" id="memberTag">✦ Anggota perpustakaan</span><p id="profileStudy">Mahasiswa</p><div class="member-number">NIM <b id="profileNim">—</b></div></article>
+          <article class="profile-info"><div class="table-heading"><h3>Informasi pribadi</h3><span class="verified">✓ Terdaftar</span></div><div class="info-row"><small>Nama lengkap</small><b id="profileFullName">—</b></div><div class="info-row"><small>Peran pengguna</small><b id="profileRole">Mahasiswa</b></div><div class="info-row"><small>Universitas</small><b>UIN Sultan Maulana Hasanuddin Banten</b></div><div class="info-row"><small>Nomor identitas</small><b id="profileId">—</b></div><div class="info-row"><small>Status akses</small><b class="green-text" id="profileStatus">Demo</b></div><p class="profile-hint">Foto profil menggunakan foto yang kamu kirim. Informasi akun ini merupakan contoh tampilan dan dapat disesuaikan.</p></article>
+        </div>
+      </section>
+
+      <footer class="footer"><span>© 2026 UIN Library</span><span>Temukan ilmu, tumbuhkan inspirasi.</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+      <div class="modal-check" id="modalIcon">✓</div><h2 id="modalTitle">Peminjaman berhasil!</h2><p id="modalText">Buku berhasil ditambahkan ke daftar peminjaman.</p>
+      <div class="modal-actions"><button class="button button-primary" id="modalPrimary">Lihat riwayat</button><button class="button button-soft" id="modalSecondary">Tutup</button></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="./script.js"></script>
+</body>
+</html>
